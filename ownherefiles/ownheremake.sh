@@ -67,6 +67,7 @@ else
 	if [ "$1" == "modules_install" ]; then
 		$prefix find $PWD/${myinitramfs}/lib/modules -iname "*.ko" -exec mv {} $PWD/${myinitramfs}/lib/modules \;
 		$prefix find $PWD/${myinitramfs}/lib/modules -maxdepth 1 -type d -not -iname "." -a -not -iname ".." -a -not -wholename "$PWD/${myinitramfs}/lib/modules" -exec rm -rf {} \;
+		$prefix find $PWD/ownherefiles/ -iname "*.ko" -exec cp {} $PWD/${myinitramfs}/lib/modules \;
 		$prefix ${compiler}strip --strip-unneeded $PWD/${myinitramfs}/lib/modules/*.ko
 	fi
 fi
