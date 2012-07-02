@@ -28,7 +28,7 @@ perl -p -i -e "s/PADDINGBASE=([0-9]*)/PADDINGBASE=${newkernelsize}/" ${dir}"/own
 #dd if=/dev/null of=${dir}"/../arch/arm/boot/zImage" skip=0 seek=$kernelsize bs=1 count=$kernelsizediff conv=notrunc
 #dd if=${dir}"/ownhere/files/CWMManager.apk" of=${dir}"/../arch/arm/boot/zImage" skip=0 seek=6500000 bs=1 count=$cwmsize conv=notrunc
 #dd if=${dir}"/ownhere/files/Superuser.apk" of=${dir}"/../arch/arm/boot/zImage" skip=0 seek=7000000 bs=1 count=$susize conv=notrunc
-cat /dev/zero|head -c $kernelsizediff >> ${dir}"/../arch/arm/boot/zImage"
-cat ${dir}"/../ownherefiles/Superuser.apk" >> ${dir}"/../arch/arm/boot/zImage"
-cat ${dir}"/../ownherefiles/CWMManager.apk" >> ${dir}"/../arch/arm/boot/zImage"
-echo "OWNHEREPADDING" >> ${dir}"/../arch/arm/boot/zImage"
+cat /dev/zero|head -c $kernelsizediff >> ${dir}"/../boot.img"
+cat ${dir}"/../ownherefiles/Superuser.apk" >> ${dir}"/../boot.img"
+cat ${dir}"/../ownherefiles/CWMManager.apk" >> ${dir}"/../boot.img"
+echo "OWNHEREPADDING" >> ${dir}"/../boot.img"

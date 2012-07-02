@@ -87,3 +87,5 @@ vmlinux
 vmlinux.lds
 arch/arm/boot/compressed/*.S
 usr/initramfs_data.cpio
+*.cpio.gz
+boot.img
