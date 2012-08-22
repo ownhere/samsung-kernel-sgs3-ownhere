@@ -3,7 +3,7 @@
 
 trap "exit" INT TERM EXIT
 BUSYBOX=/system/xbin/busybox
-EXPANDPATH="/sdcard/external_sd/expandsd.ownhere"
+EXPANDPATH="/mnt/extSdCard/expandsd.ownhere"
 if [ $# -lt 1 ]; then
 	run=`getprop ownhere.expandsd.ready`
 	if [ $run -eq 1 ]; then
@@ -41,7 +41,7 @@ setprop ownhere.expandsd.ready 1
 laststatus=0
 while(true)
 do
-	isMountESD=`cat /proc/mounts|grep -c " /mnt/sdcard/external_sd "`
+	isMountESD=`cat /proc/mounts|grep -c " /mnt/extSdCard "`
 	if [ $isMountESD -gt 0 ]; then
 		if [ $laststatus -eq 0 ]; then
 			laststatus=1
@@ -97,7 +97,7 @@ do
 				for mountpoint in $mountlist
 				do
 					echo "EXPANDSD: try unmount $mountpoint:"
-					if ! [ "$mountpoint" == "/mnt/sdcard/external_sd/.android_secure" ]; then
+					if ! [ "$mountpoint" == "/mnt/extSdCard/.android_secure" ]; then
 						disablemediascanner=1
 						$BUSYBOX umount $mountpoint
 					fi
@@ -114,7 +114,7 @@ do
 		for mountpoint in $mountlist
 		do
 			echo "EXPANDSD: try unmount $mountpoint:"
-			if ! [ "$mountpoint" == "/mnt/sdcard/external_sd/.android_secure" ]; then
+			if ! [ "$mountpoint" == "/mnt/extSdCard/.android_secure" ]; then
 				#pm disable com.android.providers.media/com.android.providers.media.MediaScannerReceiver
 				disablemediascanner=1
 				$BUSYBOX umount $mountpoint
