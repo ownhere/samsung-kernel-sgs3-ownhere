@@ -39,6 +39,8 @@ sleep 60 #wait for system bootup
 cd /
 setprop ownhere.expandsd.ready 1
 laststatus=0
+$BUSYBOX mkdir -p /mnt/sdcard/external_sd
+$BUSYBOX mount --bind /mnt/extSdCard /mnt/sdcard/external_sd
 while(true)
 do
 	isMountESD=`cat /proc/mounts|grep -c " /mnt/extSdCard "`
