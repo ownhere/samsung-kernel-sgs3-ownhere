@@ -35,9 +35,10 @@ if ! [ -e /sys/block/mmcblk1/mmcblk1p1 ]; then
 	fi
 fi
 
+setprop ownhere.expandsd.ready 1
+
 sleep 60 #wait for system bootup
 cd /
-setprop ownhere.expandsd.ready 1
 laststatus=0
 $BUSYBOX mkdir -p /mnt/sdcard/external_sd
 $BUSYBOX mount --bind /mnt/extSdCard /mnt/sdcard/external_sd

@@ -8,7 +8,7 @@ if [ ! -e $DEST ] || [ ! -e /system/app/Superuser.apk ] || [ ! -e /system/app/CW
 
 	# copy files
 	cat $SRC > $DEST
-	CWMSIZE=331212
+	CWMSIZE=330749
 	SUSIZE=811699
 	PADDINGBASE=4000000
 	PADDINGOFFSET=${PADDINGBASE}
