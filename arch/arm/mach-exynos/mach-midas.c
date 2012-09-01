@@ -2749,8 +2749,13 @@ static void __init midas_machine_init(void)
 	/* 400 kHz for initialization of MMC Card  */
 	__raw_writel((__raw_readl(EXYNOS4_CLKDIV_FSYS3) & 0xfffffff0)
 		     | 0x9, EXYNOS4_CLKDIV_FSYS3);
+#if defined(CONFIG_MACH_M0) && defined(CONFIG_TARGET_LOCALE_EUR)
+	__raw_writel((__raw_readl(EXYNOS4_CLKDIV_FSYS2) & 0x00f0fff0)
+		     | 0x10008, EXYNOS4_CLKDIV_FSYS2);
+#else
 	__raw_writel((__raw_readl(EXYNOS4_CLKDIV_FSYS2) & 0xfff0fff0)
 		     | 0x80008, EXYNOS4_CLKDIV_FSYS2);
+#endif
 	__raw_writel((__raw_readl(EXYNOS4_CLKDIV_FSYS1) & 0xfff0fff0)
 		     | 0x80008, EXYNOS4_CLKDIV_FSYS1);
 }

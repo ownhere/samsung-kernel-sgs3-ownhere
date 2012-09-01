@@ -628,7 +628,15 @@ struct max77686_platform_data exynos4_max77686_info = {
 
 	.opmode_data = max77686_opmode_data,
 	.ramp_rate = MAX77686_RAMP_RATE_27MV,
+#if defined (CONFIG_TARGET_LOCALE_CHN)
+#if defined (CONFIG_MACH_M0_CTC)
+	.wtsr_smpl = 0,
+#else
+	.wtsr_smpl = MAX77686_SMPL_ENABLE,
+#endif
+#else
 	.wtsr_smpl = MAX77686_WTSR_ENABLE | MAX77686_SMPL_ENABLE,
+#endif
 
 	.buck234_gpio_dvs = {
 		/* Use DVS2 register of each bucks to supply stable power

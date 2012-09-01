@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Linux/arm 3.0.38 Kernel Configuration
+# Linux/arm 3.0.42 Kernel Configuration
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -427,7 +427,7 @@ CONFIG_ANDROID_WIP=y
 # CONFIG_MACH_U1 is not set
 # CONFIG_MACH_PX is not set
 # CONFIG_PANEL_S2PLUS is not set
-CONFIG_TARGET_LOCALE_EUR=y
+# CONFIG_TARGET_LOCALE_EUR is not set
 # CONFIG_TARGET_LOCALE_LTN is not set
 # CONFIG_TARGET_LOCALE_KOR is not set
 # CONFIG_TARGET_LOCALE_NAATT_TEMP is not set
@@ -435,8 +435,12 @@ CONFIG_TARGET_LOCALE_EUR=y
 # CONFIG_TARGET_LOCALE_P2TMO_TEMP is not set
 # CONFIG_TARGET_LOCALE_EUR_U1_NFC is not set
 # CONFIG_TARGET_LOCALE_NTT is not set
-# CONFIG_TARGET_LOCALE_CHN is not set
+CONFIG_TARGET_LOCALE_CHN=y
 # CONFIG_TARGET_LOCALE_USA is not set
+# CONFIG_MACH_M0_CMCC is not set
+CONFIG_MACH_M0_CHNOPEN=y
+# CONFIG_MACH_M0_HKTW is not set
+# CONFIG_MACH_M0_CTC is not set
 # CONFIG_MACH_SMDK4X12 is not set
 CONFIG_MACH_MIDAS=y
 # CONFIG_MACH_MIDAS_01_BD is not set

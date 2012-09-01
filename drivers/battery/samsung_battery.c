@@ -1913,6 +1913,10 @@ static void samsung_battery_complete(struct device *dev)
 	pr_info("%s\n", __func__);
 
 	info->monitor_mode = MONITOR_NORM;
+
+#if defined(CONFIG_TARGET_LOCALE_CHN)
+	battery_monitor_interval(info);
+#endif
 }
 
 static int samsung_battery_suspend(struct device *dev)
