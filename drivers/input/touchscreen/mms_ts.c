@@ -58,7 +58,7 @@
 #include <linux/fb.h>
 #endif
 
-#define MAX_FINGERS		5
+#define MAX_FINGERS		10
 #define MAX_WIDTH		30
 #define MAX_PRESSURE		255
 #define MAX_ANGLE		90
