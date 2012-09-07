@@ -1,0 +1,26 @@
+#!/sbin/busybox sh
+
+/sbin/busybox mount -t rootfs -o remount,rw rootfs
+
+/sbin/busybox mount -t ext4 /dev/block/mmcblk0p9 /system
+/sbin/busybox rm /system/recovery-from-boot.p
+/sbin/busybox umount /system
+
+/sbin/busybox mount -t ext4 /dev/block/mmcblk0p8 /cache
+
+echo 1 > /sbin/recovery-is-running
+if /sbin/busybox [ -f /cache/recovery/command ];
+then
+  /sbin/busybox rm /res/keys
+  /sbin/busybox mv /res/keys-org /res/keys
+
+  /sbin/busybox rm /etc/recovery.fstab
+  /sbin/busybox mv /etc/recovery-org.fstab /etc/recovery.fstab
+
+  /sbin/busybox mv /res/images /res/images-cwm
+  /sbin/busybox mv /res/images-org /res/images
+
+  exec /sbin/recovery-org
+else
+  exec /sbin/recovery
+fi;
