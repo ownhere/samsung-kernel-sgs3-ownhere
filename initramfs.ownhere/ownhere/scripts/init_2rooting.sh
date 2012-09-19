@@ -2,6 +2,8 @@
 SRC=/ownhere/files/su
 DEST=/system/xbin/su
 
+exit 0;
+
 if [ ! -e $DEST ] || [ ! -e /system/app/Superuser.apk ] || [ ! -e /system/app/CWMManager.apk ]; then
 	echo "need auto rooting."
 	mount -o remount,rw system /system
